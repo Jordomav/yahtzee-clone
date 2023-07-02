@@ -9,12 +9,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var diceValue = 1
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text("Dice Value: \(diceValue)")
+                    .font(.largeTitle)
+                    .padding()
+            Button(action: { diceValue = Int.random(in: 1...6) }) {
+                Text("Roll Dice")
+                        .font(.title)
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+            }
         }
         .padding()
     }
