@@ -9,14 +9,37 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var diceValue = 1
+    struct Dice {
+        var number: Int
+        var isLocked: Bool
+    }
+
+    @State var diceArray: [Dice] = [Dice]()
+
+    func InitDice() {
+        for _ in 1...5 {
+            diceArray.append(Dice(number: Int.random(in: 1...6), isLocked: false))
+        }
+    }
+
+    func DiceText(index: Int) -> String {
+        return "Dice \(index + 1): \(diceArray[index].number)"
+    }
+
+    func RollDice() {
+        for index in diceArray.indices where !diceArray[index].isLocked {
+            diceArray[index].number = Int.random(in: 1...6)
+        }
+    }
 
     var body: some View {
         VStack {
-            Text("Dice Value: \(diceValue)")
-                    .font(.largeTitle)
+            ForEach(diceArray.indices, id: \.self) { index in
+                Text(DiceText(index: index))
+                    .font(.title)
                     .padding()
-            Button(action: { diceValue = Int.random(in: 1...6) }) {
+            }
+            Button(action: RollDice) {
                 Text("Roll Dice")
                         .font(.title)
                         .padding()
@@ -25,7 +48,10 @@ struct ContentView: View {
                         .cornerRadius(10)
             }
         }
-        .padding()
+                .padding()
+                .onAppear {
+                    InitDice()
+                }
     }
 }
 
