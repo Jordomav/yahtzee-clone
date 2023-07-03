@@ -16,6 +16,7 @@ struct ContentView: View {
 
     @State var diceArray: [Dice] = [Dice]()
     @State var rollCount: Int = 0
+    @AppStorage("highscore") var highscore: String = "0"
 
     func InitDice() {
         for _ in 1...5 {
@@ -42,6 +43,7 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
+            Text("High Score: \(highscore)")
             HStack {
                 VStack {
                     Text("Top:")
