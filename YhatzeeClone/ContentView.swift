@@ -42,6 +42,7 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
+            Spacer()
             HStack {
                 ForEach(diceArray.indices, id: \.self) { index in
                     Button(action: {
@@ -61,6 +62,7 @@ struct ContentView: View {
                 Text("Roll Dice")
                         .font(.title)
                         .padding()
+                        .frame(maxWidth: .infinity)
                         .background(Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(10)
