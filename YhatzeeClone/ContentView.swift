@@ -42,6 +42,14 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
+            HStack {
+                VStack {
+                    Text("Top:")
+                }.frame(maxWidth: .infinity)
+                VStack {
+                    Text("Bottom:")
+                }.frame(maxWidth: .infinity)
+            }
             Spacer()
             HStack {
                 ForEach(diceArray.indices, id: \.self) { index in
