@@ -15,6 +15,7 @@ struct ContentView: View {
     }
 
     @State var diceArray: [Dice] = [Dice]()
+    @State var rollCount: Int = 0
 
     func InitDice() {
         for _ in 1...5 {
@@ -27,9 +28,16 @@ struct ContentView: View {
     }
 
     func RollDice() {
-        for index in diceArray.indices where !diceArray[index].isLocked {
-            diceArray[index].number = Int.random(in: 1...6)
+        if (rollCount < 3) {
+            for index in diceArray.indices where !diceArray[index].isLocked {
+                diceArray[index].number = Int.random(in: 1...6)
+            }
+            rollCount += 1
         }
+    }
+
+    func CanRoll() -> Bool {
+        return rollCount == 3
     }
 
     var body: some View {
@@ -54,6 +62,8 @@ struct ContentView: View {
                         .foregroundColor(.white)
                         .cornerRadius(10)
             }
+                    .disabled(CanRoll())
+                    .opacity(CanRoll() ? 0.5 : 1)
         }
                 .padding()
                 .onAppear {
