@@ -35,9 +35,16 @@ struct ContentView: View {
     var body: some View {
         VStack {
             ForEach(diceArray.indices, id: \.self) { index in
-                Text(DiceText(index: index))
-                    .font(.title)
-                    .padding()
+                Button(action: {
+                    diceArray[index].isLocked.toggle()
+                }) {
+                    Text(DiceText(index: index))
+                        .font(.title)
+                        .padding()
+                        .background(diceArray[index].isLocked ? Color.red : Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
             }
             Button(action: RollDice) {
                 Text("Roll Dice")
