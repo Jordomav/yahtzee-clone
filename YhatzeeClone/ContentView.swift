@@ -19,10 +19,6 @@ struct ContentView: View {
         }
     }
 
-    func DiceText(index: Int) -> String {
-        return "\(state.diceArray[index].number)"
-    }
-
     func RollDice() {
         if state.diceArray.count == 0 {
             InitDice()
@@ -57,21 +53,7 @@ struct ContentView: View {
                 BottomView(state: state)
             }
             Spacer()
-            HStack {
-                ForEach(state.diceArray.indices, id: \.self) { index in
-                    Button(action: {
-                        state.diceArray[index].isLocked.toggle()
-                    }) {
-                        Text(DiceText(index: index))
-                                .font(.title)
-                                .padding()
-                                .frame(width: 60, height: 60)
-                                .background(state.diceArray[index].isLocked ? Color.red : Color.blue)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
-                    }
-                }
-            }
+            DiceRow(state: state)
             Button(action: RollDice) {
                 Text("Roll Dice")
                         .font(.title)
