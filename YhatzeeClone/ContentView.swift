@@ -29,6 +29,9 @@ struct ContentView: View {
     }
 
     func RollDice() {
+        if diceArray.count == 0 {
+            InitDice()
+        }
         if (rollCount < 3) {
             for index in diceArray.indices where !diceArray[index].isLocked {
                 diceArray[index].number = Int.random(in: 1...6)
@@ -39,6 +42,11 @@ struct ContentView: View {
 
     func CanRoll() -> Bool {
         return rollCount == 3
+    }
+
+    func reset() {
+        rollCount = 0
+        diceArray.removeAll()
     }
 
     func getCount(number: Int) -> String {
@@ -144,7 +152,12 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            Text("High Score: \(highscore)")
+            HStack {
+                Text("High Score: \(highscore)")
+                Button(action: reset) {
+                    Text("Reset")
+                }
+            }
             HStack {
                 VStack {
                     Text("Top:")
@@ -234,9 +247,6 @@ struct ContentView: View {
                     .opacity(CanRoll() ? 0.5 : 1)
         }
                 .padding()
-                .onAppear {
-                    InitDice()
-                }
     }
 }
 
