@@ -6,5 +6,6 @@ import SwiftUI
 import Combine
 
 class SharedData: ObservableObject {
-    @Published var diceArray: [Dice] = [];
+    @Published var diceArray: [Dice] = []
+    @Published var rollCount: Int = 0
 }
