@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		554721926637368E60AF3CEE /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5547248681F63B20CDAA0718 /* Dice.swift */; };
 		554723A03F2E95A6947F4161 /* YhatzeeCloneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55472873FBCCD2FA1B8E693F /* YhatzeeCloneUITestsLaunchTests.swift */; };
+		554723AE308DFD4203D18869 /* Bottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554725BF612D19D87BF5AE96 /* Bottom.swift */; };
 		5547251098F5A98AF4B94687 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55472304568EA19C111CA3B7 /* Preview Assets.xcassets */; };
 		5547260632A35E286ECBB860 /* YhatzeeCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55472954B21EE2FE92AA53D2 /* YhatzeeCloneTests.swift */; };
 		554726ED1974436A6184C2ED /* YhatzeeCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55472C70A13D2D2BDC57E699 /* YhatzeeCloneUITests.swift */; };
@@ -45,6 +46,7 @@
 		554725070EAA68CE9FA3AF72 /* YhatzeeCloneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YhatzeeCloneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5547250B364B4503ECE886DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		554725468473138BF0D2A308 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
+		554725BF612D19D87BF5AE96 /* Bottom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bottom.swift; sourceTree = "<group>"; };
 		5547271767D8F1541431EA56 /* YhatzeeCloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YhatzeeCloneApp.swift; sourceTree = "<group>"; };
 		5547285E229321BA1430F32D /* SharedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
 		55472873FBCCD2FA1B8E693F /* YhatzeeCloneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YhatzeeCloneUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				5547285E229321BA1430F32D /* SharedData.swift */,
 				5547248681F63B20CDAA0718 /* Dice.swift */,
 				55472A5FEF3DE27238581629 /* Top.swift */,
+				554725BF612D19D87BF5AE96 /* Bottom.swift */,
 			);
 			path = YhatzeeClone;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				55472CC6533619655BAEC4AD /* SharedData.swift in Sources */,
 				554721926637368E60AF3CEE /* Dice.swift in Sources */,
 				55472B21878B2D792142292F /* Top.swift in Sources */,
+				554723AE308DFD4203D18869 /* Bottom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
