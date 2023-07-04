@@ -162,58 +162,58 @@ struct ContentView: View {
                 VStack {
                     Text("Top:")
                     HStack {
-                        Text("1")
+                        Text("1:")
                         Text(getCount(number: 1))
                     }.frame(height: 70)
                     HStack {
-                        Text("2")
+                        Text("2:")
                         Text(getCount(number: 2))
                     }.frame(height: 70)
                     HStack {
-                        Text("3")
+                        Text("3:")
                         Text(getCount(number: 3))
                     }.frame(height: 70)
                     HStack {
-                        Text("4")
+                        Text("4:")
                         Text(getCount(number: 4))
                     }.frame(height: 70)
                     HStack {
-                        Text("5")
+                        Text("5:")
                         Text(getCount(number: 5))
                     }.frame(height: 70)
                     HStack {
-                        Text("6")
+                        Text("6:")
                         Text(getCount(number: 6))
                     }.frame(height: 70)
                 }.frame(maxWidth: .infinity)
                 VStack {
                     Text("Bottom:")
                     HStack {
-                        Text("3 of a Kind")
+                        Text("3 of a Kind:")
                         Text(threeOAK())
                     }.frame(height: 60)
                     HStack {
-                        Text("4 of a Kind")
+                        Text("4 of a Kind:")
                         Text(fourOAK())
                     }.frame(height: 60)
                     HStack {
-                        Text("Full House")
+                        Text("Full House:")
                         Text(fullHouse())
                     }.frame(height: 60)
                     HStack {
-                        Text("Sm Straight")
+                        Text("Sm Straight:")
                         Text(smStraight())
                     }.frame(height: 60)
                     HStack {
-                        Text("Lg Straight")
+                        Text("Lg Straight:")
                         Text(lgStraight())
                     }.frame(height: 60)
                     HStack {
-                        Text("Yahtzee")
+                        Text("Yahtzee:")
                         Text(yahtzee())
                     }.frame(height: 60)
                     HStack {
-                        Text("Chance")
+                        Text("Chance:")
                         Text(chance())
                     }.frame(height: 60)
                 }.frame(maxWidth: .infinity)
