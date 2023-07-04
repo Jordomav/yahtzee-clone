@@ -9,32 +9,27 @@
 import SwiftUI
 
 struct ContentView: View {
-    struct Dice {
-        var number: Int
-        var isLocked: Bool
-    }
-
-    @State var diceArray: [Dice] = [Dice]()
+    @ObservedObject var state: SharedData
     @State var rollCount: Int = 0
     @AppStorage("highscore") var highscore: String = "0"
 
     func InitDice() {
         for _ in 1...5 {
-            diceArray.append(Dice(number: 0, isLocked: false))
+            state.diceArray.append(Dice(number: 0, isLocked: false))
         }
     }
 
     func DiceText(index: Int) -> String {
-        return "\(diceArray[index].number)"
+        return "\(state.diceArray[index].number)"
     }
 
     func RollDice() {
-        if diceArray.count == 0 {
+        if state.diceArray.count == 0 {
             InitDice()
         }
         if (rollCount < 3) {
-            for index in diceArray.indices where !diceArray[index].isLocked {
-                diceArray[index].number = Int.random(in: 1...6)
+            for index in state.diceArray.indices where !state.diceArray[index].isLocked {
+                state.diceArray[index].number = Int.random(in: 1...6)
             }
             rollCount += 1
         }
@@ -46,18 +41,18 @@ struct ContentView: View {
 
     func reset() {
         rollCount = 0
-        diceArray.removeAll()
+        state.diceArray.removeAll()
     }
 
     func getCount(number: Int) -> String {
-        var count = diceArray.filter { $0.number == number }.count
+        var count = state.diceArray.filter { $0.number == number }.count
         return "\(count * number)"
     }
 
     func threeOAK() -> String {
         var countDictionary: [Int: Int] = [:]
         var total: Int = 0
-        for dice in diceArray {
+        for dice in state.diceArray {
             total += dice.number
             countDictionary[dice.number, default: 0] += 1
         }
@@ -72,7 +67,7 @@ struct ContentView: View {
     func fourOAK() -> String {
         var countDictionary: [Int: Int] = [:]
         var total: Int = 0
-        for dice in diceArray {
+        for dice in state.diceArray {
             total += dice.number
             countDictionary[dice.number, default: 0] += 1
         }
@@ -86,7 +81,7 @@ struct ContentView: View {
 
     func fullHouse() -> String {
         var countDictionary: [Int: Int] = [:]
-        for dice in diceArray {
+        for dice in state.diceArray {
             countDictionary[dice.number, default: 0] += 1
         }
         let hasFullHouse = countDictionary.values.contains(2) && countDictionary.values.contains(3)
@@ -98,7 +93,7 @@ struct ContentView: View {
     }
 
     func smStraight() -> String {
-        let diceSet = Set(diceArray.map { $0.number }).sorted()
+        let diceSet = Set(state.diceArray.map { $0.number }).sorted()
 
         guard diceSet.count >= 4 else {
             return "0"
@@ -115,7 +110,7 @@ struct ContentView: View {
     }
 
     func lgStraight() -> String {
-        let diceSet = Set(diceArray.map { $0.number }).sorted()
+        let diceSet = Set(state.diceArray.map { $0.number }).sorted()
 
         guard diceSet.count >= 5 else {
             return "0"
@@ -133,7 +128,7 @@ struct ContentView: View {
     }
 
     func yahtzee() -> String {
-        let diceSet = Set(diceArray.map { $0.number });
+        let diceSet = Set(state.diceArray.map { $0.number });
 
         if diceSet.count == 1 {
             return "50"
@@ -144,7 +139,7 @@ struct ContentView: View {
 
     func chance() -> String {
         var total = 0
-        for dice in diceArray {
+        for dice in state.diceArray {
             total += dice.number
         }
         return "\(total)"
@@ -220,15 +215,15 @@ struct ContentView: View {
             }
             Spacer()
             HStack {
-                ForEach(diceArray.indices, id: \.self) { index in
+                ForEach(state.diceArray.indices, id: \.self) { index in
                     Button(action: {
-                        diceArray[index].isLocked.toggle()
+                        state.diceArray[index].isLocked.toggle()
                     }) {
                         Text(DiceText(index: index))
                                 .font(.title)
                                 .padding()
                                 .frame(width: 60, height: 60)
-                                .background(diceArray[index].isLocked ? Color.red : Color.blue)
+                                .background(state.diceArray[index].isLocked ? Color.red : Color.blue)
                                 .foregroundColor(.white)
                                 .cornerRadius(10)
                     }
@@ -247,11 +242,5 @@ struct ContentView: View {
                     .opacity(CanRoll() ? 0.5 : 1)
         }
                 .padding()
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }

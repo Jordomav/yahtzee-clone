@@ -10,9 +10,11 @@ import SwiftUI
 
 @main
 struct YhatzeeCloneApp: App {
+    @StateObject var state = SharedData()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(state: state)
         }
     }
 }

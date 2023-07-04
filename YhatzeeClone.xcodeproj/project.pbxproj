@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		554721926637368E60AF3CEE /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5547248681F63B20CDAA0718 /* Dice.swift */; };
 		554723A03F2E95A6947F4161 /* YhatzeeCloneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55472873FBCCD2FA1B8E693F /* YhatzeeCloneUITestsLaunchTests.swift */; };
 		5547251098F5A98AF4B94687 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55472304568EA19C111CA3B7 /* Preview Assets.xcassets */; };
 		5547260632A35E286ECBB860 /* YhatzeeCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55472954B21EE2FE92AA53D2 /* YhatzeeCloneTests.swift */; };
@@ -14,6 +15,7 @@
 		554727617DCE9CE13BE162EE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 554725468473138BF0D2A308 /* .gitignore */; };
 		554727CE61C61F5216141D94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 554721A89CD737B8F75DDDA2 /* Assets.xcassets */; };
 		554729545A87544F876B9A44 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5547250B364B4503ECE886DE /* ContentView.swift */; };
+		55472CC6533619655BAEC4AD /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5547285E229321BA1430F32D /* SharedData.swift */; };
 		55472F8F8C5F4EAC31BE9149 /* YhatzeeCloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5547271767D8F1541431EA56 /* YhatzeeCloneApp.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,10 +40,12 @@
 		554721A89CD737B8F75DDDA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55472304568EA19C111CA3B7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		554723D41588C36BE16ECD70 /* YhatzeeCloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YhatzeeCloneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5547248681F63B20CDAA0718 /* Dice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
 		554725070EAA68CE9FA3AF72 /* YhatzeeCloneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YhatzeeCloneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5547250B364B4503ECE886DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		554725468473138BF0D2A308 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
 		5547271767D8F1541431EA56 /* YhatzeeCloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YhatzeeCloneApp.swift; sourceTree = "<group>"; };
+		5547285E229321BA1430F32D /* SharedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
 		55472873FBCCD2FA1B8E693F /* YhatzeeCloneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YhatzeeCloneUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		55472954B21EE2FE92AA53D2 /* YhatzeeCloneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YhatzeeCloneTests.swift; sourceTree = "<group>"; };
 		55472C70A13D2D2BDC57E699 /* YhatzeeCloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YhatzeeCloneUITests.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 				55472981195DFF563D342A77 /* Preview Content */,
 				5547271767D8F1541431EA56 /* YhatzeeCloneApp.swift */,
 				5547250B364B4503ECE886DE /* ContentView.swift */,
+				5547285E229321BA1430F32D /* SharedData.swift */,
+				5547248681F63B20CDAA0718 /* Dice.swift */,
 			);
 			path = YhatzeeClone;
 			sourceTree = "<group>";
@@ -261,6 +267,8 @@
 			files = (
 				55472F8F8C5F4EAC31BE9149 /* YhatzeeCloneApp.swift in Sources */,
 				554729545A87544F876B9A44 /* ContentView.swift in Sources */,
+				55472CC6533619655BAEC4AD /* SharedData.swift in Sources */,
+				554721926637368E60AF3CEE /* Dice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
