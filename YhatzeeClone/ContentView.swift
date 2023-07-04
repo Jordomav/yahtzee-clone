@@ -20,7 +20,7 @@ struct ContentView: View {
 
     func InitDice() {
         for _ in 1...5 {
-            diceArray.append(Dice(number: Int.random(in: 1...6), isLocked: false))
+            diceArray.append(Dice(number: 0, isLocked: false))
         }
     }
 
@@ -41,15 +41,168 @@ struct ContentView: View {
         return rollCount == 3
     }
 
+    func getCount(number: Int) -> String {
+        var count = diceArray.filter { $0.number == number }.count
+        return "\(count * number)"
+    }
+
+    func threeOAK() -> String {
+        var countDictionary: [Int: Int] = [:]
+        var total: Int = 0
+        for dice in diceArray {
+            total += dice.number
+            countDictionary[dice.number, default: 0] += 1
+        }
+        let hasThree = countDictionary.values.contains { $0 >= 3 }
+        if hasThree {
+            return "\(total)"
+        } else {
+            return "0"
+        }
+    }
+
+    func fourOAK() -> String {
+        var countDictionary: [Int: Int] = [:]
+        var total: Int = 0
+        for dice in diceArray {
+            total += dice.number
+            countDictionary[dice.number, default: 0] += 1
+        }
+        let hasThree = countDictionary.values.contains { $0 >= 4 }
+        if hasThree {
+            return "\(total)"
+        } else {
+            return "0"
+        }
+    }
+
+    func fullHouse() -> String {
+        var countDictionary: [Int: Int] = [:]
+        for dice in diceArray {
+            countDictionary[dice.number, default: 0] += 1
+        }
+        let hasFullHouse = countDictionary.values.contains(2) && countDictionary.values.contains(3)
+        if hasFullHouse {
+            return "25"
+        } else {
+            return "0"
+        }
+    }
+
+    func smStraight() -> String {
+        let diceSet = Set(diceArray.map { $0.number }).sorted()
+
+        guard diceSet.count >= 4 else {
+            return "0"
+        }
+
+        for i in 0..<diceSet.count-3 {
+            if diceSet[i+1] - diceSet[i] == 1 &&
+                       diceSet[i+2] - diceSet[i+1] == 1 &&
+                       diceSet[i+3] - diceSet[i+2] == 1 {
+                return "30"
+            }
+        }
+        return "0"
+    }
+
+    func lgStraight() -> String {
+        let diceSet = Set(diceArray.map { $0.number }).sorted()
+
+        guard diceSet.count >= 5 else {
+            return "0"
+        }
+
+        for i in 0..<diceSet.count-4 {
+            if diceSet[i+1] - diceSet[i] == 1 &&
+                       diceSet[i+2] - diceSet[i+1] == 1 &&
+                       diceSet[i+3] - diceSet[i+2] == 1 &&
+                       diceSet[i+4] - diceSet[i+3] == 1 {
+                return "40"
+            }
+        }
+        return "0"
+    }
+
+    func yahtzee() -> String {
+        let diceSet = Set(diceArray.map { $0.number });
+
+        if diceSet.count == 1 {
+            return "50"
+        } else {
+            return "0"
+        }
+    }
+
+    func chance() -> String {
+        var total = 0
+        for dice in diceArray {
+            total += dice.number
+        }
+        return "\(total)"
+    }
+
     var body: some View {
         VStack {
             Text("High Score: \(highscore)")
             HStack {
                 VStack {
                     Text("Top:")
+                    HStack {
+                        Text("1")
+                        Text(getCount(number: 1))
+                    }.frame(height: 70)
+                    HStack {
+                        Text("2")
+                        Text(getCount(number: 2))
+                    }.frame(height: 70)
+                    HStack {
+                        Text("3")
+                        Text(getCount(number: 3))
+                    }.frame(height: 70)
+                    HStack {
+                        Text("4")
+                        Text(getCount(number: 4))
+                    }.frame(height: 70)
+                    HStack {
+                        Text("5")
+                        Text(getCount(number: 5))
+                    }.frame(height: 70)
+                    HStack {
+                        Text("6")
+                        Text(getCount(number: 6))
+                    }.frame(height: 70)
                 }.frame(maxWidth: .infinity)
                 VStack {
                     Text("Bottom:")
+                    HStack {
+                        Text("3 of a Kind")
+                        Text(threeOAK())
+                    }.frame(height: 60)
+                    HStack {
+                        Text("4 of a Kind")
+                        Text(fourOAK())
+                    }.frame(height: 60)
+                    HStack {
+                        Text("Full House")
+                        Text(fullHouse())
+                    }.frame(height: 60)
+                    HStack {
+                        Text("Sm Straight")
+                        Text(smStraight())
+                    }.frame(height: 60)
+                    HStack {
+                        Text("Lg Straight")
+                        Text(lgStraight())
+                    }.frame(height: 60)
+                    HStack {
+                        Text("Yahtzee")
+                        Text(yahtzee())
+                    }.frame(height: 60)
+                    HStack {
+                        Text("Chance")
+                        Text(chance())
+                    }.frame(height: 60)
                 }.frame(maxWidth: .infinity)
             }
             Spacer()
